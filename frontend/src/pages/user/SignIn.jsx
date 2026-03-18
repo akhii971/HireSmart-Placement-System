@@ -77,23 +77,30 @@ export default function SignIn() {
                     </div>
 
                     {/* Password */}
-                    <div className="relative">
-                        <FaLock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-                        <input
-                            type={showPw ? "text" : "password"}
-                            placeholder="Password"
-                            required
-                            value={form.password}
-                            onChange={(e) => setForm({ ...form, password: e.target.value })}
-                            className="w-full pl-11 pr-11 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 text-slate-800 bg-slate-50"
-                        />
-                        <button
-                            type="button"
-                            onClick={() => setShowPw(!showPw)}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-                        >
-                            {showPw ? <FaEyeSlash /> : <FaEye />}
-                        </button>
+                    <div>
+                        <div className="relative">
+                            <FaLock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                            <input
+                                type={showPw ? "text" : "password"}
+                                placeholder="Password"
+                                required
+                                value={form.password}
+                                onChange={(e) => setForm({ ...form, password: e.target.value })}
+                                className="w-full pl-11 pr-11 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 text-slate-800 bg-slate-50"
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPw(!showPw)}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                            >
+                                {showPw ? <FaEyeSlash /> : <FaEye />}
+                            </button>
+                        </div>
+                        <div className="text-right mt-1">
+                            <Link to="/user/forgot-password" className="text-xs text-emerald-600 hover:underline">
+                                Forgot Password?
+                            </Link>
+                        </div>
                     </div>
 
                     {/* Submit */}

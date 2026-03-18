@@ -12,6 +12,9 @@ export default function NotificationBell() {
   const navigate = useNavigate();
 
   const fetchNotifications = useCallback(async () => {
+    // Only fetch if recruiter token exists
+    const tokenStr = localStorage.getItem("recruiterUser");
+    if (!tokenStr) return;
     try {
       const { data } = await api.get("/recruiter-notifications");
       setNotifications(data.notifications || []);

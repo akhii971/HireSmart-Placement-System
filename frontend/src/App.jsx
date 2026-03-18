@@ -31,6 +31,8 @@ import ShortlistCandidates from "./pages/recruiter/ShortlistCandidates";
 import ScheduleInterviews from "./pages/recruiter/ScheduleInterviews";
 import RecruiterSignIn from "./pages/recruiter/RecruiterSignIn";
 import RecruiterSignUp from "./pages/recruiter/RecruiterSignUp";
+import RecruiterForgotPassword from "./pages/recruiter/RecruiterForgotPassword";
+import RecruiterResetPassword from "./pages/recruiter/RecruiterResetPassword";
 import RecruiterProfile from "./pages/recruiter/RecruiterProfile";
 import EditJob from "./pages/recruiter/EditJob";
 import RecruiterPendingPage from "./pages/recruiter/RecruiterPendingPage";
@@ -48,6 +50,8 @@ import UserAIChat from "./pages/user/UserAIChat";
 import UserAIMockInterview from "./pages/user/UserAIMockInterview";
 import SignIn from "./pages/user/SignIn";
 import SignUp from "./pages/user/SignUp";
+import ForgotPassword from "./pages/user/ForgotPassword";
+import ResetPassword from "./pages/user/ResetPassword";
 import MyProfile from "./pages/user/MyProfile";
 import BlockedPage from "./pages/user/BlockedPage";
 import ProtectedRoute from "./components/user/ProtectedRoute";
@@ -91,6 +95,8 @@ function App() {
           {/* ===== USER AUTH (public) ===== */}
           <Route path="/user/signin" element={<SignIn />} />
           <Route path="/user/signup" element={<SignUp />} />
+          <Route path="/user/forgot-password" element={<ForgotPassword />} />
+          <Route path="/user/reset-password/:token" element={<ResetPassword />} />
           <Route path="/user/blocked" element={<BlockedPage />} />
 
           {/* ===== USER (protected) ===== */}
@@ -130,6 +136,8 @@ function App() {
           {/* ===== RECRUITER AUTH (public) ===== */}
           <Route path="/recruiter/signin" element={<RecruiterSignIn />} />
           <Route path="/recruiter/signup" element={<RecruiterSignUp />} />
+          <Route path="/recruiter/forgot-password" element={<RecruiterForgotPassword />} />
+          <Route path="/recruiter/reset-password/:token" element={<RecruiterResetPassword />} />
           {/* Pending / Rejected / Blocked page — accessible without full approval */}
           <Route path="/recruiter/pending" element={<RecruiterPendingPage />} />
 

@@ -108,7 +108,7 @@ export const uploadResumeFile = createAsyncThunk(
 // ─── FORGOT PASSWORD ───
 export const forgotPassword = createAsyncThunk(
   "auth/forgotPassword",
-  async (email, { rejectWithValue }) => {
+  async ({ email }, { rejectWithValue }) => {
     try {
       const { data } = await api.post("/users/forgot-password", { email });
       return data;

@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useRef } from "react";
-import { changePassword, fetchProfile, saveProfile, uploadResumeFile } from "../../redux/user/authSlice";
+import { changePassword, fetchProfile, saveProfile, uploadResumeFile, forgotPassword } from "../../redux/user/authSlice";
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -264,6 +264,7 @@ export default function MyProfile() {
   const [mode, setMode] = useState("view");
   const [saved, setSaved] = useState(false);
   const [resumeSuccess, setResumeSuccess] = useState(false);
+  const [forgotPwLoading, setForgotPasswordLoading] = useState(false);
   const fileInputRef = useRef(null);
   // 🔐 Change password state
   const [passwordForm, setPasswordForm] = useState({
@@ -414,6 +415,19 @@ export default function MyProfile() {
       });
     }
   }
+
+  /* ── Forgot Password from Profile ── */
+  const handleForgotPassword = async () => {
+    setForgotPasswordLoading(true);
+    const res = await dispatch(forgotPassword({ email: form.email || user?.email }));
+    setForgotPasswordLoading(false);
+    
+    if (!res.error) {
+        dispatch({ type: "userNotifications/addNotification", payload: { message: "Password reset link sent to your email!" } });
+    } else {
+        setPwError(res.payload || "Failed to send reset link");
+    }
+  };
 
   /* ── Completion bar ── */
   const completedFields = Object.values(form).filter(
@@ -902,6 +916,17 @@ export default function MyProfile() {
                     {pwMessage}
                   </div>
                 )}
+
+                <div className="flex justify-end mb-2">
+                    <button
+                      type="button"
+                      onClick={handleForgotPassword}
+                      disabled={forgotPwLoading}
+                      className="text-xs font-semibold text-emerald-600 hover:text-emerald-700 hover:underline"
+                    >
+                      {forgotPwLoading ? "Sending link..." : "Forgot Password?"}
+                    </button>
+                </div>
 
                 <input
                   type="password"

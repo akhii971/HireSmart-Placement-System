@@ -7,19 +7,7 @@ const api = axios.create({
   },
 });
 
-/**
- * Token resolution by URL path + HTTP method:
- *  /admin/*                      → adminUser token
- *  /recruiter/*                  → recruiterUser token
- *  /jobs/my/*                    → recruiterUser token
- *  /jobs/* (POST, PUT, DELETE)   → recruiterUser token  (recruiter managing jobs)
- *  /jobs/* (GET)                 → authUser token       (user browsing jobs)
- *  /applications/recruiter/*     → recruiterUser token
- *  /applications/job/*           → recruiterUser token
- *  /applications/detail/*        → recruiterUser token
- *  /applications/:id/status      → recruiterUser token
- *  everything else               → authUser (student) token
- */
+
 const getTokenForRequest = (url = "", method = "get") => {
   let key = "authUser"; // default: student
 

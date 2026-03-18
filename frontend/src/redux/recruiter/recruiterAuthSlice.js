@@ -88,7 +88,7 @@ export const recruiterUpdateProfile = createAsyncThunk(
 // ─── FORGOT PASSWORD ──────────────────────────────
 export const recruiterForgotPassword = createAsyncThunk(
     "recruiterAuth/forgotPassword",
-    async (email, { rejectWithValue }) => {
+    async ({ email }, { rejectWithValue }) => {
         try {
             const { data } = await axios.post(`${API_BASE}/recruiters/forgot-password`, { email });
             return data;
