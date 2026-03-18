@@ -26,7 +26,7 @@ export default function FeedbackPage() {
 
         try {
             const endpoint = isRecruiter ? "/api/feedback/recruiter" : "/api/feedback/user";
-            const res = await fetch(`${import.meta.env.VITE_SOCKET_URL || "http://localhost:5000"}${endpoint}`, {
+            const res = await fetch(`${import.meta.env.VITE_SOCKET_URL || "https://hiresmart-placement-system.onrender.com"}${endpoint}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

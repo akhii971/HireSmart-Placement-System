@@ -5,7 +5,7 @@ import { logout } from "../../redux/user/authSlice";
 import axios from "axios";
 
 const CHECK_INTERVAL = 10_000; // check every 10 seconds
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+const API_BASE = import.meta.env.VITE_API_URL || "https://hiresmart-placement-system.onrender.com/api";
 
 /**
  * Wraps routes that require the user to be authenticated.
