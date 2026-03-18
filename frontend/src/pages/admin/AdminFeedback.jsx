@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { FaTrash, FaCheckCircle, FaSpinner } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
 function AdminFeedback() {
   const { admin } = useSelector((state) => state.adminAuth);
   const adminToken = admin?.token;
@@ -14,7 +16,7 @@ function AdminFeedback() {
   const fetchFeedback = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/feedback/admin", {
+      const res = await fetch(`${API_BASE}/feedback/admin`, {
         headers: {
           Authorization: `Bearer ${adminToken}`,
         },
@@ -36,7 +38,7 @@ function AdminFeedback() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/feedback/admin/${id}/status`, {
+      const res = await fetch(`${API_BASE}/feedback/admin/${id}/status`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +59,7 @@ function AdminFeedback() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this feedback?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/feedback/admin/${id}`, {
+      const res = await fetch(`${API_BASE}/feedback/admin/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${adminToken}`,
