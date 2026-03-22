@@ -8,7 +8,7 @@ export const initSocket = (app) => {
     // Initialize Socket.io
     const io = new Server(server, {
         cors: {
-            origin: "http://localhost:5173", // URL of the React frontend
+            origin: process.env.FRONTEND_URL || "http://localhost:5173",
             methods: ["GET", "POST"]
         }
     });
