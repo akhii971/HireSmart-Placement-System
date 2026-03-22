@@ -18,7 +18,7 @@ export const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         if (activeToken && activeUser) {
-            const newSocket = io(import.meta.env.VITE_SOCKET_URL || "https://hiresmart-placement-system.onrender.com", {
+            const newSocket = io(import.meta.env.VITE_SOCKET_URL || "https://hiresmart-placement-system-dcoe.onrender.com", {
                 query: {
                     userId: activeUser._id,
                     userType: user ? "User" : "Recruiter",

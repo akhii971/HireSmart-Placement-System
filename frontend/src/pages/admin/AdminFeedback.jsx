@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { FaTrash, FaCheckCircle, FaSpinner } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
-const API_BASE = import.meta.env.VITE_API_URL || "https://hiresmart-placement-system.onrender.com/api";
+const API_BASE = import.meta.env.VITE_API_URL || "https://hiresmart-placement-system-dcoe.onrender.com/api";
 
 function AdminFeedback() {
   const { admin } = useSelector((state) => state.adminAuth);

@@ -5,7 +5,7 @@ import axios from "axios";
 import { recruiterSetStatus, recruiterLogout } from "../../redux/recruiter/recruiterAuthSlice";
 
 const CHECK_INTERVAL = 10_000;          // poll every 10 s
-const API_BASE = import.meta.env.VITE_API_URL || "https://hiresmart-placement-system.onrender.com/api";
+const API_BASE = import.meta.env.VITE_API_URL || "https://hiresmart-placement-system-dcoe.onrender.com/api";
 const STORAGE_KEY = "recruiterUser";
 
 /**

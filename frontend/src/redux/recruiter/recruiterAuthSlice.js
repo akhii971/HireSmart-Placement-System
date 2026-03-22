@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_URL || "https://hiresmart-placement-system.onrender.com/api";
+const API_BASE = import.meta.env.VITE_API_URL || "https://hiresmart-placement-system-dcoe.onrender.com/api";
 const STORAGE_KEY = "recruiterUser";
 
 // Load persisted recruiter session

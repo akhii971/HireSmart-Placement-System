@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const CHECK_INTERVAL = 8_000;  // poll every 8 s
-const API_BASE = import.meta.env.VITE_API_URL || "https://hiresmart-placement-system.onrender.com/api";
+const API_BASE = import.meta.env.VITE_API_URL || "https://hiresmart-placement-system-dcoe.onrender.com/api";
 const STORAGE_KEY = "recruiterUser";
 
 export default function RecruiterPendingPage() {
